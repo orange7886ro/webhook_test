@@ -14,25 +14,8 @@ set :sa_number, ask('sa server')
 role :app, 'ec2-user@sa1.shoplinestg.com'
 set :deploy_to , -> { "/data/www/html/webhook.shoplinestg.com" }
 set :user, 'ec2-user'
-set :shared_path, 'data/www/html/webhook.shoplinestg.com/shared'
-set :puma_bind, "unix://#{shared_path}/tmp/sockets/development.sock"
 set :rbenv_type, :user
 set :rbenv_ruby, '2.4.1'
-
-# Don't change these unless you know what you're doing
-set :pty,             true
-set :use_sudo,        false
-set :stage,           :development
-set :deploy_via,      :remote_cache
-
-set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
-set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
-set :puma_access_log, "#{release_path}/log/puma.error.log"
-set :puma_error_log,  "#{release_path}/log/puma.access.log"
-set :ssh_options,     { forward_agent: true }
-set :puma_preload_app, true
-set :puma_worker_timeout, nil
-set :puma_init_active_record, false  # Change to true if using ActiveRecord
 
 ## Defaults:
 # set :scm,           :git
