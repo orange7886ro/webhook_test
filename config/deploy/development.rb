@@ -16,7 +16,7 @@ set :deploy_to , -> { "/data/www/html/webhook.shoplinestg.com" }
 set :user, 'ec2-user'
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/staging.sock"
 set :rbenv_type, :user
-set :rbenv_ruby, '2.3.0'
+set :rbenv_ruby, '2.4.1'
 
 
 # role-based syntax
