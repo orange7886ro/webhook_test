@@ -11,12 +11,12 @@ set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/data/www/html/webhook.shoplinestg.com"
-set :puma_bind,       "unix://data/www/html/webhook.shoplinestg.com/shared/tmp/sockets/#{fetch(:application)}-puma.sock"
-set :puma_state,      "data/www/html/webhook.shoplinestg.com/shared/tmp/pids/puma.state"
-set :puma_pid,        "data/www/html/webhook.shoplinestg.com/shared/tmp/pids/puma.pid"
-set :puma_access_log, "data/www/html/webhook.shoplinestg.com/shared/log/puma.error.log"
-set :puma_error_log,  "data/www/html/webhook.shoplinestg.com/shared/log/puma.access.log"
-set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh/id_rsa.pub) }
+set :puma_bind,       "unix:///data/www/html/webhook.shoplinestg.com/shared/tmp/sockets/development.sock"
+set :puma_state,      "/data/www/html/webhook.shoplinestg.com/shared/tmp/pids/puma.state"
+set :puma_pid,        "/data/www/html/webhook.shoplinestg.com/shared/tmp/pids/puma.pid"
+set :puma_access_log, "/data/www/html/webhook.shoplinestg.com/shared/log/puma.error.log"
+set :puma_error_log,  "/data/www/html/webhook.shoplinestg.com/shared/log/puma.access.log"
+set :ssh_options,     { forward_agent: true }
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
