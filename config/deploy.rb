@@ -11,7 +11,7 @@ set :use_sudo,        false
 set :stage,           :staging
 set :deploy_via,      :remote_cache
 set :deploy_to,       "/data/www/html/webhook.shoplinestg.com"
-set :puma_bind,       "unix:///data/www/html/webhook.shoplinestg.com/shared/tmp/sockets/development.sock"
+set :puma_bind,       "unix:///data/www/html/webhook.shoplinestg.com/shared/tmp/sockets/staging.sock"
 set :puma_state,      "/data/www/html/webhook.shoplinestg.com/shared/tmp/pids/puma.state"
 set :puma_pid,        "/data/www/html/webhook.shoplinestg.com/shared/tmp/pids/puma.pid"
 set :puma_access_log, "/data/www/html/webhook.shoplinestg.com/shared/log/puma.error.log"
@@ -20,6 +20,7 @@ set :ssh_options,     { forward_agent: true }
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+append :rbenv_map_bins, 'puma', 'pumactl'
 
 ## Defaults:
 # set :scm,           :git
