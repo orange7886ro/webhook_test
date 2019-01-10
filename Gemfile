@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem "capistrano", "~> 3.10", require: false
 gem "capistrano-rails", "~> 1.4", require: false
+gem 'capistrano3-puma' , group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

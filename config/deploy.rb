@@ -3,6 +3,8 @@ lock "~> 3.11.0"
 
 set :application, "webhook"
 set :repo_url, "git@github.com:orange7886ro/webhook_test.git"
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
+set :nginx_sites_enabled_path, "/etc/nginx/sites-enabled"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
