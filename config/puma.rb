@@ -1,5 +1,5 @@
 application_path = File.expand_path("../../..", __FILE__)
-railsenv = 'development'
+railsenv = 'staging'
 directory application_path
 environment railsenv
 daemonize true

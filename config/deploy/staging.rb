@@ -7,7 +7,26 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
+set :stage, :staging
+set :branch, ask('branch name')
+set :sa_number, ask('sa server')
 
+role :app, 'ec2-user@sa1.shoplinestg.com'
+set :deploy_to , -> { "/data/www/html/webhook.shoplinestg.com" }
+set :user, 'ec2-user'
+set :rbenv_type, :user
+set :rbenv_ruby, '2.4.1'
+
+## Defaults:
+# set :scm,           :git
+# set :branch,        :master
+# set :format,        :pretty
+# set :log_level,     :debug
+# set :keep_releases, 5
+
+## Linked Files & Directories (Default None):
+# set :linked_files, %w{config/database.yml}
+# set :linked_dirs,  %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # role-based syntax
 # ==================

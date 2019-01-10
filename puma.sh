@@ -49,11 +49,11 @@ case "$1" in
         rm -f $PUMA_SOCKET
         echo "removed $PUMA_SOCKET"
       fi
-      RAILS_ENV=$ENV bundle exec puma --config $PUMA_CONFIG_FILE 
- 
+      RAILS_ENV=$ENV bundle exec puma --config $PUMA_CONFIG_FILE
+
     echo "done"
     ;;
- 
+
   stop)
       if [ -e $PUMA_PID_FILE ] ; then # if pid file exists
         echo "Stopping puma..."
@@ -68,7 +68,7 @@ case "$1" in
       fi
     echo "done"
     ;;
- 
+
   restart)
    if puma_is_running ; then
       echo "Hot-restarting puma..."
@@ -86,10 +86,10 @@ case "$1" in
         exit 1 # return error
       fi
     fi
- 
+
     echo "Trying cold reboot"
     $0 start
- 
+
     ;;
  	status)
     if puma_is_running ; then
@@ -99,9 +99,9 @@ case "$1" in
       echo "puma is not running"
       exit 1 # return error
     fi
- 
+
     ;;
-  
+
   *)
     echo "Usage: script/puma.sh {start|stop|restart|status}" >&2
     ;;
